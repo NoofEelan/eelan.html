@@ -1,117 +1,384 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>eelan</title>
-  <meta name="description" content="eelan - Entwickler. Folge mir auf sozialen Netzwerken oder kontaktiere mich direkt." />
-  <meta property="og:title" content="eelan - Entwickler Profil" />
-  <meta property="og:description" content="Entdecke meine sozialen Netzwerke und kontaktiere mich direkt." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Roboto', sans-serif;
-      color: #f0f0f0;
-      text-align: center;
-      padding: 40px 20px;
-      backdrop-filter: blur(4px);
-      background-color: #0d0d0d;
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+   
+    <style>
+        body {
+            background-color: #500050; /* خلفية بنفسجية */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: rgb(231, 231, 231);
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            background: rgb(2, 211, 65);
+            color: #800080;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #backBtn {
+            padding: 8px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 20px;
+            background: rgb(0, 0, 0);
+            color: #3a063a;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+
+
+ body {
+        background-color: #800080;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: white;
     }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #00ffd5;
+    .section {
+        display: none;
+        padding: 20px;
     }
 
-    .about {
-      max-width: 600px;
-      margin: 0 auto 40px;
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #ccc;
+    .section.active {
+        display: block;
     }
 
-    .icon-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+    .btn {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        background: white;
+        color: #800080;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        width: 90%;          /* يجعل الزر مناسب للهاتف */
+        max-width: 300px;    /* لا يكبر كثيرًا على الكمبيوتر */
     }
 
-    .icon-list a {
-      text-decoration: none;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      padding: 14px 20px;
-      border-radius: 10px;
-      background-color: rgba(30, 30, 30, 0.85);
-      width: 100%;
-      max-width: 400px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    #backBtn {
+        padding: 8px 15px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-bottom: 20px;
+        background: white;
+        color: #800080;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
     }
 
-    .icon-list a:hover {
-      background-color: rgba(50, 50, 50, 0.95);
-      transform: scale(1.02);
+    /* للشاشات الصغيرة (الهاتف) */
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 1.5em;
+        }
+        p {
+            font-size: 1.1em;
+        }
     }
 
-    .icon-list img {
-      width: 40px;
-      height: 40px;
+    /* للشاشات المتوسطة (تابلت) */
+    @media (min-width: 601px) and (max-width: 1024px) {
+        h1 {
+            font-size: 2em;
+        }
     }
 
-    .icon-list span {
-      font-size: 1.2em;
+    /* للشاشات الكبيرة (كمبيوتر) */
+    @media (min-width: 1025px) {
+        h1 {
+            font-size: 2.5em;
+        }
     }
-  </style>
+
+
+
+    </style>
+
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function goHome() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            document.getElementById('home').classList.add('active');
+        }
+    </script>
 </head>
+
 <body>
-  <h1>eelan</h1>
 
-  <div class="about">
-    <p>Ich bin ein leidenschaftlicher Entwickler, spezialisiert auf Webentwicklung und digitale Lösungen. Hier findest du meine sozialen Netzwerke und Kontaktinformationen.</p>
-  </div>
+    <!-- الصفحة الرئيسية -->
+    <div id="home" class="section active">
+        <h1>  Fragen und Antworten über Selbstmotivierung </h1>
 
-  <div class="icon-list">
-    <a href="https://www.instagram.com/eyaln_1" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-      <span>Instagram</span>
-    </a>
-    <a href="https://www.tiktok.com/@scv.g?_t=ZS-8vhoYZzRGFD&_r=1" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok">
-      <span>TikTok</span>
-    </a>
-    <a href="https://www.facebook.com/share/1CLWzZ95mx/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-      <span>Facebook</span>
-    </a>
-    <a href="https://wa.me/4915734327167" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://t.me/+4915734327167" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-      <span>Telegram</span>
-    </a>
-    <a href="mailto:mlk003330@gmail.com">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-      <span>Email</span>
-    </a>
-    <a href="tel:+4915734327167">
-      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Telefon">
-      <span>Telefon</span>
-    </a>
-  </div>
+        <button class="btn" onclick="showSection('section1')"> Grundlagen </button>
+        <button class="btn" onclick="showSection('section2')">Ziele setzen</button>
+        <button class="btn" onclick="showSection('section3')">Gewohnheiten & Routinen</button>
+        <button class="btn" onclick="showSection('section4')">Emotionen & Mindset</button>
+        <button class="btn" onclick="showSection('section5')">Energie & Gesundheit</button>
+        <button class="btn" onclick="showSection('section6')">Strategien & Techniken</button>
+        <button class="btn" onclick="showSection('section7')">Soziale Faktoren</button>
+        <button class="btn" onclick="showSection('section8')">Alltag & Praxis</button>
+
+    </div>
+
+
+
+
+
+
+    <!-- الصفحات العشرة -->
+    <div id="section1" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Grundlagen</h1>
+        <p>1. Was bedeutet Selbstmotivierung? Selbstmotivierung bedeutet, sich selbst zum Handeln zu bringen, ohne dass andere einen dazu drängen.</p> <hr> <p>2. Warum ist Selbstmotivierung wichtig? Sie hilft, Ziele zu erreichen und auch in schwierigen Zeiten weiterzumachen.</p> <hr> <p>3. Kann jeder Mensch Selbstmotivierung lernen? Ja, Selbstmotivierung ist eine Fähigkeit, die man trainieren kann.</p> <hr> <p>4. Was ist der erste Schritt zur Selbstmotivierung? Sich ein klares Ziel zu setzen.</p> <hr> <p>5. Welche Rolle spielt Disziplin? Disziplin unterstützt die Motivation, besonders wenn die Lust fehlt.</p> <hr> <p>6. Warum verlieren Menschen Motivation? Wegen Stress, Müdigkeit, fehlenden Zielen oder negativen Gedanken.</p> <hr> <p>7. Was ist intrinsische Motivation? Motivation, die aus dem Inneren kommt, z. B. Freude am Lernen.</p> <hr> <p>8. Was ist extrinsische Motivation? Motivation durch äußere Belohnungen, z. B. Geld oder Anerkennung.</p> <hr> <p>9. Kann Motivation schwanken? Ja, Motivation ist nicht konstant und verändert sich täglich.</p> <hr> <p>10. Wie bleibt man langfristig motiviert? Durch klare Ziele, Routinen und regelmäßige Erfolgserlebnisse.</p> <hr>
+    </div>
+
+    <div id="section2" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Ziele setzen</h1>
+        <p>11. Warum helfen Ziele bei der Motivation? Sie geben Richtung und Fokus.</p>
+<hr>
+<p>12. Was ist ein SMART-Ziel? Ein Ziel, das spezifisch, messbar, attraktiv, realistisch und terminiert ist.</p>
+<hr>
+<p>13. Wie viele Ziele sollte man gleichzeitig verfolgen? Wenige, damit man konzentriert bleibt.</p>
+<hr>
+<p>14. Warum scheitern viele Ziele? Weil sie zu groß oder unklar formuliert sind.</p>
+<hr>
+<p>15. Wie kann man große Ziele leichter machen? Durch kleine, erreichbare Schritte.</p>
+<hr>
+<p>16. Warum ist ein Zeitplan wichtig? Er schafft Struktur und verhindert Aufschieben.</p>
+<hr>
+<p>17. Sollten Ziele aufgeschrieben werden? Ja, das erhöht die Verbindlichkeit.</p>
+<hr>
+<p>18. Wie oft sollte man Ziele überprüfen? Regelmäßig, z. B. einmal pro Woche.</p>
+<hr>
+<p>19. Was tun, wenn ein Ziel nicht mehr passt? Es anpassen oder neu formulieren.</p>
+<hr>
+<p>20. Warum motivieren Zwischenziele? Sie zeigen Fortschritt und geben Energie.</p>
+<hr>
+    </div>
+
+    <div id="section3" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Gewohnheiten & Routinen</h1>
+       <p>21. Wie helfen Routinen bei der Motivation? Sie machen Handlungen automatisch und leichter.</p>
+<hr>
+<p>22. Wie baut man eine neue Gewohnheit auf? Durch tägliche Wiederholung.</p>
+<hr>
+<p>23. Wie lange dauert es, bis eine Gewohnheit entsteht? Durchschnittlich 30–60 Tage.</p>
+<hr>
+<p>24. Warum sind kleine Schritte wichtig? Sie verhindern Überforderung.</p>
+<hr>
+<p>25. Was ist eine Morgenroutine? Ein fester Ablauf am Morgen, der Energie gibt.</p>
+<hr>
+<p>26. Wie kann man schlechte Gewohnheiten ersetzen? Durch bessere Alternativen.</p>
+<hr>
+<p>27. Warum ist Konsistenz wichtiger als Perfektion? Weil regelmäßiges Tun langfristig mehr bringt.</p>
+<hr>
+<p>28. Wie bleibt man bei einer neuen Routine? Durch klare Zeiten und Erinnerungen.</p>
+<hr>
+<p>29. Was tun, wenn man eine Routine vergisst? Einfach am nächsten Tag weitermachen.</p>
+<hr>
+<p>30. Warum motiviert eine feste Struktur? Sie reduziert Stress und Entscheidungen.</p>
+<hr>
+    </div>
+
+    <div id="section4" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Emotionen & Mindset</h1>
+        
+<p>31. Wie beeinflusst das Mindset die Motivation? Ein positives Mindset stärkt die Ausdauer.</p>
+<hr>
+<p>32. Was ist ein Growth Mindset? Der Glaube, dass man sich verbessern kann.</p>
+<hr>
+<p>33. Wie geht man mit Rückschlägen um? Lernen, analysieren und weitermachen.</p>
+<hr>
+<p>34. Warum ist Selbstvertrauen wichtig? Es gibt Mut, neue Schritte zu gehen.</p>
+<hr>
+<p>35. Wie stärkt man Selbstvertrauen? Durch kleine Erfolge und positive Selbstgespräche.</p>
+<hr>
+<p>36. Was tun bei Selbstzweifeln? Gedanken hinterfragen und realistisch bewerten.</p>
+<hr>
+<p>37. Warum ist Dankbarkeit motivierend? Sie lenkt den Fokus auf das Positive.</p>
+<hr>
+<p>38. Wie kann man negative Gedanken stoppen? Durch bewusstes Umlenken und Atempausen.</p>
+<hr>
+<p>39. Warum ist Geduld wichtig? Große Ziele brauchen Zeit.</p>
+<hr>
+<p>40. Wie bleibt man emotional stabil? Durch Pausen, Schlaf und Selbstfürsorge.</p>
+<hr>
+    </div>
+
+    <div id="section5" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Energie & Gesundheit</h1>
+<p>41. Wie beeinflusst Schlaf die Motivation? Guter Schlaf erhöht Konzentration und Energie.</p>
+<hr>
+<p>42. Warum ist Bewegung motivierend? Sie setzt Glückshormone frei.</p>
+<hr>
+<p>43. Wie wirkt Ernährung auf Motivation? Gesunde Ernährung verbessert Fokus und Stimmung.</p>
+<hr>
+<p>44. Warum sind Pausen wichtig? Sie verhindern Erschöpfung.</p>
+<hr>
+<p>45. Wie kann man Stress reduzieren? Durch Atmung, Sport oder Meditation.</p>
+<hr>
+<p>46. Warum hilft frische Luft? Sie steigert Energie und Klarheit.</p>
+<hr>
+<p>47. Wie vermeidet man Burnout? Durch Balance zwischen Arbeit und Erholung.</p>
+<hr>
+<p>48. Warum ist Wasser wichtig? Dehydration senkt Motivation.</p>
+<hr>
+<p>49. Wie kann man Müdigkeit bekämpfen? Durch Bewegung, Licht und kurze Pausen.</p>
+<hr>
+<p>50. Warum ist Selbstfürsorge motivierend? Sie stärkt Körper und Geist.</p>
+<hr>    </div>
+
+    <div id="section6" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Strategien & Techniken</h1>
+        <p>51. Was ist die 5‑Minuten-Regel? Einfach 5 Minuten anfangen, um den Start leichter zu machen.</p>
+<hr>
+<p>52. Was ist die Pomodoro-Technik? 25 Minuten arbeiten, 5 Minuten Pause.</p>
+<hr>
+<p>53. Wie hilft Musik bei Motivation? Sie steigert Stimmung und Energie.</p>
+<hr>
+<p>54. Warum hilft Visualisierung? Sie macht Ziele greifbarer.</p>
+<hr>
+<p>55. Was ist ein Vision Board? Eine Collage mit Bildern der eigenen Ziele.</p>
+<hr>
+<p>56. Wie hilft ein Belohnungssystem? Es verstärkt positives Verhalten.</p>
+<hr>
+<p>57. Warum ist Planung motivierend? Sie schafft Klarheit und Struktur.</p>
+<hr>
+<p>58. Wie hilft eine To‑Do‑Liste? Sie zeigt Fortschritt und reduziert Chaos.</p>
+<hr>
+<p>59. Was ist Priorisierung? Wichtige Aufgaben zuerst erledigen.</p>
+<hr>
+<p>60. Wie vermeidet man Prokrastination? Durch kleine Schritte und klare Deadlines.</p>
+<hr>
+<p>61. Warum hilft ein Mentor? Er gibt Feedback und Orientierung.</p>
+<hr>
+<p>62. Wie motiviert Feedback? Es zeigt, was gut läuft und was verbessert werden kann.</p>
+<hr>
+<p>63. Warum ist Selbstreflexion wichtig? Sie hilft, Fehler zu verstehen und besser zu werden.</p>
+<hr>
+<p>64. Wie hilft ein Erfolgstagebuch? Es stärkt Selbstvertrauen.</p>
+<hr>
+<p>65. Warum ist Ordnung motivierend? Ein aufgeräumter Raum schafft Klarheit.</p>
+<hr>
+<p>66. Wie hilft Zeitmanagement? Es verhindert Stress und Überforderung.</p>
+<hr>
+<p>67. Warum ist Fokus wichtig? Er erhöht die Qualität der Arbeit.</p>
+<hr>
+<p>68. Wie kann man Ablenkungen reduzieren? Handy weglegen, Benachrichtigungen ausschalten.</p>
+<hr>
+<p>69. Warum hilft ein fester Arbeitsplatz? Er signalisiert dem Gehirn: Jetzt wird gearbeitet.</p>
+<hr>
+<p>70. Wie motiviert Fortschrittsmessung? Sie zeigt, wie weit man schon gekommen ist.</p>
+<hr>
+    </div>
+
+    <div id="section7" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Soziale Faktoren</h1>
+<p>71. Wie beeinflussen Freunde die Motivation? Unterstützende Menschen geben Energie.</p>
+<hr>
+<p>72. Warum ist ein Lernpartner hilfreich? Man bleibt verbindlicher.</p>
+<hr>
+<p>73. Wie kann man Unterstützung suchen? Durch offene Gespräche.</p>
+<hr>
+<p>74. Warum sollte man sich mit positiven Menschen umgeben? Sie inspirieren und motivieren.</p>
+<hr>
+<p>75. Wie beeinflusst Kritik die Motivation? Konstruktive Kritik kann verbessern.</p>
+<hr>
+<p>76. Warum ist Austausch wichtig? Er bringt neue Ideen.</p>
+<hr>
+<p>77. Wie motiviert Teamarbeit? Gemeinsame Ziele verbinden.</p>
+<hr>
+<p>78. Warum sollte man Erfolge teilen? Es verstärkt das positive Gefühl.</p>
+<hr>
+<p>79. Wie geht man mit demotivierenden Menschen um? Grenzen setzen und Abstand halten.</p>
+<hr>
+<p>80. Warum ist Vorbilder haben motivierend? Sie zeigen, was möglich ist.</p>
+<hr>    </div>
+
+    <div id="section8" class="section">
+        <button id="backBtn" onclick="goHome()">← Zurück</button>
+        <h1>Alltag & Praxis</h1>
+<p>81. Wie motiviert man sich morgens? Durch eine kurze Routine und klare Ziele.</p>
+<hr>
+<p>82. Wie bleibt man nach der Arbeit motiviert? Durch kleine, realistische Aufgaben.</p>
+<hr>
+<p>83. Wie motiviert man sich zum Lernen? Durch feste Zeiten und kleine Schritte.</p>
+<hr>
+<p>84. Wie motiviert man sich zum Sport? Durch Planung und passende Musik.</p>
+<hr>
+<p>85. Wie bleibt man motiviert, wenn man müde ist? Durch kurze Pausen und leichte Aufgaben.</p>
+<hr>
+<p>86. Wie motiviert man sich bei schlechtem Wetter? Durch Indoor-Aktivitäten und warme Getränke.</p>
+<hr>
+<p>87. Wie bleibt man motiviert, wenn man allein lebt? Durch Routinen und Online-Communities.</p>
+<hr>
+<p>88. Wie motiviert man sich für unangenehme Aufgaben? Zuerst erledigen, dann belohnen.</p>
+<hr>
+<p>89. Wie bleibt man motiviert, wenn man langsam Fortschritte sieht? Kleine Erfolge feiern.</p>
+<hr>
+<p>90. Wie motiviert man sich nach einem Fehler? Fehler analysieren und weitergehen.</p>
+<hr>
+<p>91. Wie bleibt man motiviert im Studium? Durch klare Lernpläne.</p>
+<hr>
+<p>92. Wie motiviert man sich im Job? Durch Fokus auf Stärken und Ziele.</p>
+<hr>
+<p>93. Wie motiviert man sich zum Aufräumen? Musik anmachen und Timer setzen.</p>
+<hr>
+<p>94. Wie motiviert man sich zum Sparen? Durch klare finanzielle Ziele.</p>
+<hr>
+<p>95. Wie motiviert man sich zum Deutschlernen? Durch tägliche Mini‑Übungen und Erfolgserlebnisse.</p>
+<hr>
+<p>96. Wie bleibt man motiviert beim Abnehmen? Durch realistische Ziele und Fortschrittsmessung.</p>
+<hr>
+<p>97. Wie motiviert man sich, wenn man gestresst ist? Erst entspannen, dann starten.</p>
+<hr>
+<p>98. Wie motiviert man sich, wenn man keine Lust hat? Einfach 5 Minuten anfangen.</p>
+<hr>
+<p>99. Wie bleibt man motiviert, wenn andere schneller sind? Auf den eigenen Weg konzentrieren.</p>
+<hr>
+<p>100. Wie hält man Motivation ein Leben lang? Durch Lernen, Anpassung und Selbstreflexion.</p>
+<hr>    </div>
+
+<h3>Alshankal Eelan</h3>
 </body>
 </html>
